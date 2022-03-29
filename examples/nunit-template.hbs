@@ -1,0 +1,51 @@
+{{#each site}}
+
+<test-run
+    id="2"
+    name="Owasp test"
+    start-time="{{../[@generated]}}"  >
+    <test-suite
+        id="{{@index}}"
+        type="Assembly"
+        name="{{[@name]}}">
+        <attachments>
+            <attachment>
+                <filePath>$(System.DefaultWorkingDirectory)/owaspzap/report.html</filePath>
+            </attachment>
+			<attachment>
+                <filePath>$(System.DefaultWorkingDirectory)/owaspzap/report.json</filePath>
+            </attachment>
+        </attachments>
+		{{#each alerts}}
+			<test-case
+				id="{{@index}}"
+				name="{{alert}}"
+				result="{{{convertRiskCode riskcode}}}"
+				tags="{{riskdesc}}"
+				fullname="{{alert}}"
+				time="1">
+				<failure>
+					<message>
+						<![CDATA[{{{desc}}}]]>
+					</message>
+					<stack-trace>
+						<![CDATA[
+							Solution:
+							{{{solution}}}
+
+							Reference:
+							{{{reference}}}
+
+							instances:{{#each instances}}
+							* {{uri}}
+								- {{method}}
+								{{#if evidence}}- {{{evidence}}}{{/if}}
+								{{/each}}]]>
+					</stack-trace>
+				</failure>
+			</test-case>
+		{{/each}}
+    </test-suite>
+</test-run>
+{{/each}}
+EOF
