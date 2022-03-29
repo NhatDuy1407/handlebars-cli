@@ -12,9 +12,9 @@ $ npm install -g hbs-commandline
 ## Usage
 ```sh
 Usage:
-    hbs data.json helpers.js < template.hbs > output.xml
+    hbs-commandline data.json ./helpers.js < template.hbs > output.xml
     data.json               Parse data
-    helpers.js              Custom helpers
+    helpers.js              Custom helpers (fullpath)
     template.hbs            Your template
     output.xml              Output rendered templates
 ```
@@ -34,6 +34,6 @@ helpers.register = function (Handlebars) {
 module.exports = helpers;
 ```
 
-# license
+# License
 
 MIT
