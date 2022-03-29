@@ -2,7 +2,7 @@
 
 <test-run
     id="2"
-    name="Owasp test"
+    name="OWASP Zap Test"
     start-time="{{../[@generated]}}"  >
     <test-suite
         id="{{@index}}"
@@ -21,26 +21,30 @@
 				id="{{@index}}"
 				name="{{alert}}"
 				result="{{{convertRiskCode riskcode}}}"
-				tags="{{riskdesc}}"
-				fullname="{{alert}}"
+				fullname="{{alert}} [{{riskdesc}}]"
 				time="1">
 				<failure>
 					<message>
-						<![CDATA[{{{desc}}}]]>
+<![CDATA[
+Risk Level: {{{riskdesc}}}
+
+Description:
+{{{desc}}}
+]]>
 					</message>
 					<stack-trace>
-						<![CDATA[
-							Solution:
-							{{{solution}}}
+<![CDATA[                    
+Solution:
+{{{solution}}}
 
-							Reference:
-							{{{reference}}}
+Reference:
+{{{reference}}}
 
-							instances:{{#each instances}}
-							* {{uri}}
-								- {{method}}
-								{{#if evidence}}- {{{evidence}}}{{/if}}
-								{{/each}}]]>
+Instances:{{#each instances}}
+* {{uri}}
+- {{method}}
+{{#if evidence}}- {{{evidence}}}{{/if}}
+{{/each}}]]>
 					</stack-trace>
 				</failure>
 			</test-case>
