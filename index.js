@@ -9,10 +9,6 @@ if (args._.length) {
     try {
         helpersFile = args._[1];
         args = JSON.parse(fs.readFileSync(args._[0]).toString());
-
-        if (helpersFile) {
-            addHandlebarsHelpers(helpersFile);
-        }
     } catch (e) { }
 }
 else for (var key in args) {
@@ -23,7 +19,7 @@ else for (var key in args) {
 }
 
 function addHandlebarsHelpers(file) {
-    const handlebarsHelper = require("./" + file);
+    const handlebarsHelper = require(file);
    
     if (handlebarsHelper && typeof handlebarsHelper.register === 'function') {
         handlebarsHelper.register(hbs);
@@ -44,6 +40,10 @@ function readStream(s, done) {
 }
 
 readStream(process.stdin, function(err, tmpl) {
+    if (helpersFile) {
+        addHandlebarsHelpers(helpersFile);
+    };
+
     function handle(tmpl, args) {
         hbs.registerHelper('include', function (file, context, opt) {
             var context = null == context ? args : context;
