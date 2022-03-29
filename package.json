@@ -1,18 +1,18 @@
 {
-  "name": "handlebars-cli",
-  "version": "0.0.1",
+  "name": "hbs-commandline",
+  "version": "0.0.2",
   "bin": {
     "hbs": "index.js"
   },
-  "description": "Invoke handlebars from the commandline",
+  "description": "Invoke handlebars from the commandline. Specifically, using to convert [ZAP](https://www.zaproxy.org/) reports to xml and show into Azure Devops Test Results",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "hbs": "node index.js"
   },
-  "repository": "",
-  "author": "",
-  "license": "BSD",
+  "repository": "https://github.com/NhatDuy1407/handlebars-cli",
+  "author": "nhatduynguyen",
+  "license": "MIT",
   "dependencies": {
     "handlebars": "~1.0.10",
     "optimist": "~0.3.5"

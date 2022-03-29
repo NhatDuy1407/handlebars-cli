@@ -1,4 +1,4 @@
-# handlebars-cli
+# hbs-commandline
 
 Invoke handlebars from the commandline.
 Specifically, using to convert [ZAP](https://www.zaproxy.org/) reports to xml and show into Azure Devops Test Results
@@ -6,7 +6,7 @@ Specifically, using to convert [ZAP](https://www.zaproxy.org/) reports to xml an
 ## Installation
     
 ```sh
-$ npm install -g handlebars-cli
+$ npm install -g hbs-commandline
 ```
 
 ## Usage
