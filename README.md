@@ -34,6 +34,9 @@ helpers.register = function (Handlebars) {
 module.exports = helpers;
 ```
 
-# License
+## Use case
+https://github.com/NhatDuy1407/azure-pipelines-zap-scanner
+
+## License
 
 MIT
